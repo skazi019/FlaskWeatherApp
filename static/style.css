@@ -14,7 +14,6 @@ body {
 }
 
 body .vertical-divider {
-  background-color: white;
   width: 1px;
   height: 100%;
 }
@@ -213,9 +212,9 @@ body main .card .weather-details .humidity-wind-details .wind {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 375px) {
   body main .card {
-    max-width: 480px;
+    max-width: 375px;
     padding: 2rem;
   }
   body main .card .weather-details .temperature {

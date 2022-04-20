@@ -17,7 +17,7 @@ body {
     margin: 0;
 
     .vertical-divider {
-        background-color: $color;
+        // background-color: $color;
         width: 1px;
         height: 100%;
     }
@@ -165,11 +165,11 @@ body {
 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 375px) {
     body {
         main {
             .card {
-                max-width: 480px;
+                max-width: 375px;
                 padding: 2rem;
 
                 .weather-details {

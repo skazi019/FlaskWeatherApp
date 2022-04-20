@@ -44,12 +44,14 @@ def index():
         city = request.form.get('city')
         api_key = os.getenv("OPEN_WEATHER_API_KEY")
         try:
-            weather = requests.get(URL.format(city=city, api_key=api_key)).json()
+            weather = requests.get(URL.format(
+                city=city, api_key=api_key)).json()
         except Exception as e:
             print(f"Error in processing request")
         if weather["cod"] == 200:
             weather['dt'] = weather['dt'] + weather['timezone']
             timeOfDay = get_day_category(weather['dt'])
+            weather['text_color'] = 'black' if timeOfDay == 'MORNING' else 'white'
             weather['background'] = os.path.join(timeOfDay.lower()+'.jpeg')
             return render_template('weather.html', weather=weather)
         else:

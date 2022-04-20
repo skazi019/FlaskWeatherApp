@@ -19,11 +19,11 @@
             </form>
         </div>
         {% if weather %}
-        <div class="card"
-            style="background-image: url({{ url_for('static', filename=weather.background) }});background-size:fill;">
+        <div class="card" style="background: url({{ url_for('static', filename=weather.background) }}) no-repeat;background-size: cover; background-position:center;
+            color: {{ weather.text_color }}">
             <div class="top-row">
                 <div class="daytime">{{ weather.dt | get_day_category }}</div>
-                <div class="vertical-divider"></div>
+                <div class="vertical-divider" style="background-color: {{ weather.text_color }};"></div>
                 <div class="weather-type">{{ weather.weather.0.main|upper }}</div>
             </div>
             <div class="city-name">
@@ -36,7 +36,7 @@
                         <p class="humidity-header">HUMIDITY</p>
                         <p class="humidity-value">{{ weather.main.humidity }}</p>
                     </div>
-                    <div class="vertical-divider"></div>
+                    <div class="vertical-divider" style="background-color: {{ weather.text_color }};"></div>
                     <div class="wind">
                         <p>WIND</p>
                         <p>{{ weather.wind.speed }}</p>
