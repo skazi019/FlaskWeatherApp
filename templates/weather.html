@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Flask Weather App</title>
+</head>
+
+<body>
+    <main>
+        <div class="search-box">
+            <form method="post" action="{{ url_for('index') }}">
+                <input type="search" name="city" class="user-input-box">
+                <button type="submit" class="user-submit-button"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        {% if weather %}
+        <div class="card"
+            style="background-image: url({{ url_for('static', filename=weather.background) }});background-size:fill;">
+            <div class="top-row">
+                <div class="daytime">{{ weather.dt | get_day_category }}</div>
+                <div class="vertical-divider"></div>
+                <div class="weather-type">{{ weather.weather.0.main|upper }}</div>
+            </div>
+            <div class="city-name">
+                <p class="city">{{ weather.name|upper }} <span class="country">{{ weather.sys.country }}</span></p>
+            </div>
+            <div class="weather-details">
+                <p class="temperature">{{ weather.main.temp }}</p>
+                <div class="humidity-wind-details">
+                    <div class="humidity">
+                        <p class="humidity-header">HUMIDITY</p>
+                        <p class="humidity-value">{{ weather.main.humidity }}</p>
+                    </div>
+                    <div class="vertical-divider"></div>
+                    <div class="wind">
+                        <p>WIND</p>
+                        <p>{{ weather.wind.speed }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div>Date: {{ weather.dt | format_time_get_date }}</div> -->
+            <!-- <div>Sunrise: {{ weather.sys.sunrise | format_time_get_time }}</div> -->
+            <!-- <div>Sunset: {{ weather.sys.sunset | format_time_get_time }}</div> -->
+            <!-- <div>
+                Temperature: {{ weather.main.temp }}
+                feels like: {{ weather.main.feels_like }}
+                Min temperatures: {{ weather.main.temp_min }}
+                Max temperatures: {{ weather.main.temp_max }}
+                Pressure: {{ weather.main.pressure }}
+                Humidity: {{ weather.main.humidity }}
+                Visibility: {{ weather.visibility }}
+            </div> -->
+            <!-- <div>
+                Wind Speed: {{ weather.wind.speed }}
+                Wind Direction: {{ weather.wind.deg }}
+            </div>
+            <div>
+                Clouds: {{ weather.clouds.all }}
+            </div>
+            <div>City: {{ weather.name }}</div>
+            <div>Country: {{ weather.sys.country }}</div> -->
+        </div>
+        {% endif %}
+    </main>
+</body>
+
+</html>

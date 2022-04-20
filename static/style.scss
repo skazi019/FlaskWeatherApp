@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+$font-family: 'Source Sans Pro',
+sans-serif;
+$color: hsl(0, 0%, 100%);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: $font-family;
+    margin: 0;
+
+    .vertical-divider {
+        background-color: $color;
+        width: 1px;
+        height: 100%;
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+
+        .search-box form {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            // width: 100%;
+
+            .user-input-box {
+                border: none;
+                padding: .5rem 1rem;
+                border-radius: 2rem;
+                width: 100%;
+                box-shadow: 0 2px 2px rgb(197, 197, 197);
+            }
+
+            .user-submit-button {
+                border: none;
+                padding: .5rem 1rem;
+                border-radius: 10px;
+                cursor: pointer;
+                background-color: rgb(230, 0, 230);
+                color: white;
+                box-shadow: 0 2px 2px rgba(197, 197, 197, 0.747);
+            }
+
+            .user-submit-button:hover {
+                background-color: rgb(199, 0, 199);
+                cursor: pointer;
+            }
+        }
+
+        .card {
+            width: 80%;
+            margin: 2rem 0;
+            padding: 1rem;
+            box-shadow: 0 2px 8px 1px rgb(140, 140, 140);
+            border-radius: 1rem;
+            display: grid;
+            grid-template-rows: 1fr 2fr 3fr;
+            // flex-direction: column;
+            color: $color;
+
+            .top-row {
+                font-size: .7rem;
+                text-align: right;
+                display: flex;
+                height: 50%;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                align-content: flex-start;
+                gap: .3rem;
+                padding: .5rem 0;
+            }
+
+            .city-name {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 4rem 0;
+
+                .city {
+                    margin: 0;
+                    font-size: 1rem;
+                    font-weight: 600;
+
+                    .country {
+                        font-weight: 300;
+                        font-size: .3rem;
+                    }
+                }
+            }
+
+            .weather-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                max-width: max-content;
+
+                .temperature {
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    margin: 0;
+                }
+
+                .humidity-wind-details {
+                    display: grid;
+                    grid-template-columns: .3fr .3fr .3fr;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    grid-gap: .5rem .5rem;
+                    font-size: .5rem;
+
+                    .humidity {
+                        display: grid;
+                        grid-template-rows: 1fr 1fr;
+                        justify-items: center;
+
+                        .humidity-header {
+                            font-weight: 400;
+                        }
+                    }
+
+                    .wind {
+                        display: grid;
+                        grid-template-rows: 1fr 1fr;
+                        justify-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    body {
+        main {
+            .search-box form {
+                width: 100%;
+                display: grid;
+                grid-gap: .5rem 0;
+                grid-template-rows: 1fr 1fr;
+
+                .user-input-box {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        main {
+            .card {
+                max-width: 480px;
+                padding: 2rem;
+
+                .weather-details {
+                    .temperature {
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+    }
+}

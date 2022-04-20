@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+}
+
+body .vertical-divider {
+  background-color: white;
+  width: 1px;
+  height: 100%;
+}
+
+body main {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f0f0f0;
+}
+
+body main .search-box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+body main .search-box form .user-input-box {
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 2px #c5c5c5;
+          box-shadow: 0 2px 2px #c5c5c5;
+}
+
+body main .search-box form .user-submit-button {
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #e600e6;
+  color: white;
+  -webkit-box-shadow: 0 2px 2px rgba(197, 197, 197, 0.747);
+          box-shadow: 0 2px 2px rgba(197, 197, 197, 0.747);
+}
+
+body main .search-box form .user-submit-button:hover {
+  background-color: #c700c7;
+  cursor: pointer;
+}
+
+body main .card {
+  width: 80%;
+  margin: 2rem 0;
+  padding: 1rem;
+  -webkit-box-shadow: 0 2px 8px 1px #8c8c8c;
+          box-shadow: 0 2px 8px 1px #8c8c8c;
+  border-radius: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 2fr 3fr;
+      grid-template-rows: 1fr 2fr 3fr;
+  color: white;
+}
+
+body main .card .top-row {
+  font-size: .7rem;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  gap: .3rem;
+  padding: .5rem 0;
+}
+
+body main .card .city-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4rem 0;
+}
+
+body main .card .city-name .city {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+body main .card .city-name .city .country {
+  font-weight: 300;
+  font-size: .3rem;
+}
+
+body main .card .weather-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+body main .card .weather-details .temperature {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+body main .card .weather-details .humidity-wind-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: .3fr .3fr .3fr;
+      grid-template-columns: .3fr .3fr .3fr;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: .5rem .5rem;
+  font-size: .5rem;
+}
+
+body main .card .weather-details .humidity-wind-details .humidity {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+body main .card .weather-details .humidity-wind-details .humidity .humidity-header {
+  font-weight: 400;
+}
+
+body main .card .weather-details .humidity-wind-details .wind {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  body main .search-box form {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    grid-gap: .5rem 0;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  body main .search-box form .user-input-box {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body main .card {
+    max-width: 480px;
+    padding: 2rem;
+  }
+  body main .card .weather-details .temperature {
+    font-size: 3rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
