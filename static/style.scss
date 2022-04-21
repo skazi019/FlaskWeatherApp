@@ -24,12 +24,32 @@ body {
 
     main {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: #f0f0f0;
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background-color: blueviolet;
+            color: whitesmoke;
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            .hero-logo {
+                margin-left: 2rem;
+            }
+
+            .center-title {
+                text-align: center;
+            }
+        }
 
         .search-box form {
             display: flex;

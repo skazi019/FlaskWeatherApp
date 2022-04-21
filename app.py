@@ -1,6 +1,6 @@
 import os
 import requests
-from datetime import datetime
+from datetime import date, datetime
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask, render_template, request
 
@@ -10,11 +10,6 @@ load_dotenv(find_dotenv())
 def format_time_get_date(value):
     date = datetime.fromtimestamp(value).strftime('%d-%m-%Y')
     return date
-
-
-def format_time_get_time(value):
-    time = datetime.fromtimestamp(value).strftime('%H:%M')
-    return time
 
 
 def get_day_category(value):
@@ -33,7 +28,6 @@ def get_day_category(value):
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.jinja_env.filters['format_time_get_date'] = format_time_get_date
-app.jinja_env.filters['format_time_get_time'] = format_time_get_time
 app.jinja_env.filters['get_day_category'] = get_day_category
 
 
@@ -49,7 +43,9 @@ def index():
         except Exception as e:
             print(f"Error in processing request")
         if weather["cod"] == 200:
-            weather['dt'] = weather['dt'] + weather['timezone']
+            print(f"unix time is: {weather['dt']}")
+            print(
+                f"Formatted time: {datetime.fromtimestamp(weather['dt']).strftime('%Y-%m-%d %H:%M:%S')}")
             timeOfDay = get_day_category(weather['dt'])
             weather['text_color'] = 'black' if timeOfDay == 'MORNING' else 'white'
             weather['background'] = os.path.join(timeOfDay.lower()+'.jpeg')

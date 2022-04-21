@@ -12,6 +12,14 @@
 
 <body>
     <main>
+        <div class="navbar">
+            <div class="hero-logo">
+                <p>Kaushal Sharma</p>
+            </div>
+            <div class="center-title">
+                <p>Simple Flask Weather App</p>
+            </div>
+        </div>
         <div class="search-box">
             <form method="post" action="{{ url_for('index') }}">
                 <input type="search" name="city" class="user-input-box">
@@ -43,27 +51,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div>Date: {{ weather.dt | format_time_get_date }}</div> -->
-            <!-- <div>Sunrise: {{ weather.sys.sunrise | format_time_get_time }}</div> -->
-            <!-- <div>Sunset: {{ weather.sys.sunset | format_time_get_time }}</div> -->
-            <!-- <div>
-                Temperature: {{ weather.main.temp }}
-                feels like: {{ weather.main.feels_like }}
-                Min temperatures: {{ weather.main.temp_min }}
-                Max temperatures: {{ weather.main.temp_max }}
-                Pressure: {{ weather.main.pressure }}
-                Humidity: {{ weather.main.humidity }}
-                Visibility: {{ weather.visibility }}
-            </div> -->
-            <!-- <div>
-                Wind Speed: {{ weather.wind.speed }}
-                Wind Direction: {{ weather.wind.deg }}
-            </div>
-            <div>
-                Clouds: {{ weather.clouds.all }}
-            </div>
-            <div>City: {{ weather.name }}</div>
-            <div>Country: {{ weather.sys.country }}</div> -->
         </div>
         {% endif %}
     </main>

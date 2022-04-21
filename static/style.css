@@ -20,7 +20,7 @@ body .vertical-divider {
 
 body main {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,6 +35,28 @@ body main {
       -ms-flex-align: center;
           align-items: center;
   background-color: #f0f0f0;
+}
+
+body main .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  background-color: blueviolet;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+body main .navbar .hero-logo {
+  margin-left: 2rem;
+}
+
+body main .navbar .center-title {
+  text-align: center;
 }
 
 body main .search-box form {
