@@ -1,0 +1,6 @@
+__pycache__
+.idea
+.vscode
+flask-weather-app-env
+.env
+.DS_Store
