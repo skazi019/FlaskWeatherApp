@@ -28,23 +28,23 @@
         </div>
         {% if weather %}
         <div class="card" style="background: url({{ url_for('static', filename=weather.background) }}) no-repeat;background-size: cover; background-position:center;
-            color: {{ weather.text_color }}">
+            color: {{ weather.top_text_color }}">
             <div class="top-row">
-                <div class="daytime">{{ weather.dt | get_day_category }}</div>
-                <div class="vertical-divider" style="background-color: {{ weather.text_color }};"></div>
+                <div class="daytime">{{ weather.timeOfDay }}</div>
+                <div class="vertical-divider" style="background-color: {{ weather.top_text_color }};"></div>
                 <div class="weather-type">{{ weather.weather.0.main|upper }}</div>
             </div>
             <div class="city-name">
                 <p class="city">{{ weather.name|upper }} <span class="country">{{ weather.sys.country }}</span></p>
             </div>
-            <div class="weather-details">
+            <div class="weather-details" style="color: {{ weather.bottom_text_color }}">
                 <p class="temperature">{{ weather.main.temp }}</p>
                 <div class="humidity-wind-details">
                     <div class="humidity">
                         <p class="humidity-header">HUMIDITY</p>
                         <p class="humidity-value">{{ weather.main.humidity }}</p>
                     </div>
-                    <div class="vertical-divider" style="background-color: {{ weather.text_color }};"></div>
+                    <div class="vertical-divider" style="background-color: {{ weather.bottom_text_color }};"></div>
                     <div class="wind">
                         <p>WIND</p>
                         <p>{{ weather.wind.speed }}</p>

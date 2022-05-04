@@ -185,9 +185,22 @@ body {
 
 }
 
+@media screen and (max-width: 640px) {
+
+    body {
+        main {
+            .navbar {
+                font-size: 1rem;
+            }
+        }
+    }
+
+}
+
 @media screen and (min-width: 375px) {
     body {
         main {
+
             .card {
                 max-width: 375px;
                 padding: 2rem;
