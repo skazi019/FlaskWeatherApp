@@ -13,15 +13,6 @@ def format_time_get_date(value):
 
 
 def get_day_category(hour):
-    # hours: int = int(datetime.fromtimestamp(value).hour)
-    # timeOfDay: str = ""
-    # print(f"Hour is: {datetime.fromtimestamp(value).hour}")
-    # if 24 > hours >= 18:
-    #     timeOfDay = "NIGHT"
-    # elif 18 > hours >= 12:
-    #     timeOfDay = "AFTERNOON"
-    # elif hours < 12:
-    #     timeOfDay = "MORNING"
     if 6 <= int(hour) <= 16:
         return 'MORNING'
     elif 17 <= int(hour) <= 23:
@@ -30,7 +21,6 @@ def get_day_category(hour):
         return 'NIGHT'
     else:
         return 'MORNING'
-    # return timeOfDay
 
 
 app = Flask(__name__)
@@ -51,23 +41,22 @@ def index():
         except Exception as e:
             print(f"Error in processing request")
         if weather["cod"] == 200:
-            print(f"unix time is: {weather['dt']}")
+            # print(f"unix time is: {weather['dt']}")
             offset = int(weather.get('timezone'))
             dt = int(weather.get('dt'))
             local_hour = dt + offset
             local_hour = int(datetime.utcfromtimestamp(
                 local_hour).strftime('%H'))
-            print(
-                f"Formatted hour: {local_hour}")
+            # print(
+            # f"Formatted hour: {local_hour}")
             timeOfDay = get_day_category(local_hour)
-            print(f"Time of day: {timeOfDay}")
+            # print(f"Time of day: {timeOfDay}")
             weather['timeOfDay'] = timeOfDay
             weather['top_text_color'] = 'black' if timeOfDay == 'MORNING' or timeOfDay == 'AFTERNOON' else 'white'
             weather['bottom_text_color'] = 'black' if timeOfDay == 'MORNING' else 'white'
             weather['background'] = os.path.join(timeOfDay.lower()+'.jpeg')
             return render_template('weather.html', weather=weather)
         else:
-            # PASS A RELEVANT MESSAGE IF CITY ENTERED IS INCORRECT
             pass
     return render_template('weather.html')
 
