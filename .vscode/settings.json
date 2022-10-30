@@ -1,3 +1,4 @@
 {
-    "bracketPairColorizer.highlightActiveScope": true
+    "bracketPairColorizer.highlightActiveScope": true,
+    "python.formatting.provider": "black"
 }

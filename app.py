@@ -47,10 +47,7 @@ def index():
             local_hour = dt + offset
             local_hour = int(datetime.utcfromtimestamp(
                 local_hour).strftime('%H'))
-            # print(
-            # f"Formatted hour: {local_hour}")
             timeOfDay = get_day_category(local_hour)
-            # print(f"Time of day: {timeOfDay}")
             weather['timeOfDay'] = timeOfDay
             weather['top_text_color'] = 'black' if timeOfDay == 'MORNING' or timeOfDay == 'AFTERNOON' else 'white'
             weather['bottom_text_color'] = 'black' if timeOfDay == 'MORNING' else 'white'
