@@ -41,7 +41,6 @@ def index():
         except Exception as e:
             print(f"Error in processing request")
         if weather["cod"] == 200:
-            # print(f"unix time is: {weather['dt']}")
             offset = int(weather.get('timezone'))
             dt = int(weather.get('dt'))
             local_hour = dt + offset
